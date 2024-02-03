@@ -10,5 +10,5 @@ jobs:
           with:
             python-version: '3.11'
         - name: run integration tests
-          run: make integ-tests
+          run: sudo make integ-tests-with-docker
 
