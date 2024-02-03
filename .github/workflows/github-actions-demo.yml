@@ -4,6 +4,7 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    container: ubuntu
     steps:
         - uses: actions/checkout@v3
         - uses: actions/setup-python@v5
