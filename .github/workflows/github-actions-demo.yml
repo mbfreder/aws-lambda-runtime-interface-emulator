@@ -1,6 +1,5 @@
 name: GitHub Actions to run integration tests
-
-on: [push]
+on: []
 jobs:
   test:
     runs-on: ubuntu-latest
