@@ -88,7 +88,7 @@ class TestEndToEnd(TestCase):
         )
         self.assertEqual(b'"4=4"', r.content)
 
-    @parameterized.expand([("x86_64", "8001"), ("arm64", "9000"), ("", "9051")])
+    @parameterized.expand([("x86_64", "8001"), ("arm64", "9001"), ("", "9051")])
     def test_two_invokes(self, arch, port):
         image, rie, image_name = self.tagged_name("twoinvokes", arch)
 
@@ -110,7 +110,7 @@ class TestEndToEnd(TestCase):
         )
         self.assertEqual(b'"My lambda ran succesfully"', r.content)
 
-    @parameterized.expand([("x86_64", "8002"), ("arm64", "9000"), ("", "9052")])
+    @parameterized.expand([("x86_64", "8002"), ("arm64", "9002"), ("", "9052")])
     def test_lambda_function_arn_exists(self, arch, port):
         image, rie, image_name = self.tagged_name("arnexists", arch)
 
@@ -126,7 +126,7 @@ class TestEndToEnd(TestCase):
         )
         self.assertEqual(b'"My lambda ran succesfully"', r.content)
 
-    @parameterized.expand([("x86_64", "8003"), ("arm64", "9000"), ("", "9053")])
+    @parameterized.expand([("x86_64", "8003"), ("arm64", "9003"), ("", "9053")])
     def test_lambda_function_arn_exists_with_defining_custom_name(self, arch, port):
         image, rie, image_name = self.tagged_name("customname", arch)
 
@@ -141,7 +141,7 @@ class TestEndToEnd(TestCase):
         )
         self.assertEqual(b'"My lambda ran succesfully"', r.content)
 
-    @parameterized.expand([("x86_64", "8004"), ("arm64", "9000"), ("", "9054")])
+    @parameterized.expand([("x86_64", "8004"), ("arm64", "9004"), ("", "9054")])
     def test_timeout_invoke(self, arch, port):
         image, rie, image_name = self.tagged_name("timeout", arch)
 
@@ -157,7 +157,7 @@ class TestEndToEnd(TestCase):
         )
         self.assertEqual(b"Task timed out after 1.00 seconds", r.content)
 
-    @parameterized.expand([("x86_64", "8005"), ("arm64", "9000"), ("", "9055")])
+    @parameterized.expand([("x86_64", "8005"), ("arm64", "9005"), ("", "9055")])
     def test_exception_returned(self, arch, port):
         image, rie, image_name = self.tagged_name("exception", arch)
 
@@ -176,7 +176,7 @@ class TestEndToEnd(TestCase):
             r.content,
         )
 
-    @parameterized.expand([("x86_64", "8006"), ("arm64", "9000"), ("", "9056")])
+    @parameterized.expand([("x86_64", "8006"), ("arm64", "9006"), ("", "9056")])
     def test_context_get_remaining_time_in_three_seconds(self, arch, port):
         image, rie, image_name = self.tagged_name("remaining_time_in_three_seconds", arch)
 
@@ -195,7 +195,7 @@ class TestEndToEnd(TestCase):
         self.assertLess(int(r.content), 3000)
         self.assertGreater(int(r.content), 1000)
 
-    @parameterized.expand([("x86_64", "8007"), ("arm64", "9000"), ("", "9057")])
+    @parameterized.expand([("x86_64", "8007"), ("arm64", "9007"), ("", "9057")])
     def test_context_get_remaining_time_in_ten_seconds(self, arch, port):
         image, rie, image_name = self.tagged_name("remaining_time_in_ten_seconds", arch)
 
@@ -214,7 +214,7 @@ class TestEndToEnd(TestCase):
         self.assertLess(int(r.content), 10000)
         self.assertGreater(int(r.content), 8000)
 
-    @parameterized.expand([("x86_64", "8008"), ("arm64", "9000"), ("", "9058")])
+    @parameterized.expand([("x86_64", "8008"), ("arm64", "9008"), ("", "9058")])
     def test_context_get_remaining_time_in_default_deadline(self, arch, port):
         image, rie, image_name = self.tagged_name("remaining_time_in_default_deadline", arch)
 
@@ -233,7 +233,7 @@ class TestEndToEnd(TestCase):
         self.assertLess(int(r.content), 300000)
         self.assertGreater(int(r.content), 298000)
 
-    @parameterized.expand([("x86_64", "8009"), ("arm64", "9000"), ("", "9059")])
+    @parameterized.expand([("x86_64", "8009"), ("arm64", "9009"), ("", "9059")])
     def test_invoke_with_pre_runtime_api_runtime(self, arch, port):
         image, rie, image_name = self.tagged_name("pre-runtime-api", arch)
 
@@ -249,7 +249,7 @@ class TestEndToEnd(TestCase):
         )
         self.assertEqual(b'"My lambda ran succesfully"', r.content)
 
-    @parameterized.expand([("x86_64", "8010"), ("arm64", "9000"), ("", "9060")])
+    @parameterized.expand([("x86_64", "8010"), ("arm64", "9010"), ("", "9060")])
     def test_function_name_is_overriden(self, arch, port):
         image, rie, image_name = self.tagged_name("assert-overwritten", arch)
 
@@ -265,7 +265,7 @@ class TestEndToEnd(TestCase):
         )
         self.assertEqual(b'"My lambda ran succesfully"', r.content)
 
-    @parameterized.expand([("x86_64", "8011"), ("arm64", "9000"), ("", "9061")])
+    @parameterized.expand([("x86_64", "8011"), ("arm64", "9011"), ("", "9061")])
     def test_port_override(self, arch, port):
         image, rie, image_name = self.tagged_name("port_override", arch)
 
